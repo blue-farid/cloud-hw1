@@ -1,0 +1,19 @@
+version: '3.3'
+
+services:
+
+  bank-processor:
+    image: bank_processor:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+
+  bank-operator:
+    image: bank_operator:latest
+    build:
+      context: ../bank-operator/.
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
